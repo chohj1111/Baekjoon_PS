@@ -1,11 +1,13 @@
+#define LIMIT 100
 int n;
-int arr[30][30], check[30];
+int arr[LIMIT][LIMIT]
+bool check[LIMIT];
  
 void DFS(int v)
 {
-    check[v] = 1;
+    check[v] = true;
     for (int i = 1; i <= n; i++)    {
-        if (arr[v][i] == 1 && !visit[i])   
+        if (arr[v][i] == 1 && !check[i])   
             DFS(i);       
         }
     }

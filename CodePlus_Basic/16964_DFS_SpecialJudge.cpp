@@ -52,4 +52,8 @@ vector <int> input(n); // given order
 
 	return 0;
 	
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 861e6077667baf8804b364527cba1d16c2cc82bd

@@ -1,7 +1,14 @@
+#include <iostream>
+#include <cstdio>
+#include <vector>
+#include <queue>
+#include <cstring>
+#include <algorithm>
 #define LIMIT 100
 int n;
 int arr[LIMIT][LIMIT];
-bool check[LIMIT][LIMIT];
+bool check[LIMIT][LIMIT]; 
+int group[LIMIT][LIMIT];
 int dirx[] = {0,0,-1,1};
 int diry[] = {-1,1,0,0};
 
@@ -17,3 +24,6 @@ void DFS(int x, int y)
 			}
 		}
 }
+
+	
+	
