@@ -16,4 +16,5 @@ void DFS(int x, int y)
 				dfs(nx,ny);
 			}
 		}
+	}
 }
