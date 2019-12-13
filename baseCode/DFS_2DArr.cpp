@@ -12,8 +12,8 @@ void DFS(int x, int y)
 		int nx= x+dirx[i];
 		int ny= y+diry[i];
 		if(nx>=0&& nx<LIMIT && ny>=0 && ny<LIMIT){
-			if(check[nx][ny] = false && arr[nx][ny] == 1){
-				dfs(nx,ny);
+			if(check[nx][ny] == false && arr[nx][ny] == 1){
+				DFS(nx,ny);
 			}
 		}
 	}
