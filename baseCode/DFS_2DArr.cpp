@@ -1,10 +1,18 @@
+#include <iostream>
+#include <cstdio>
+#include <vector>
+#include <queue>
+#include <deque>
+#include <cstring>
+#include <algorithm>
+#include <stack>
 #define LIMIT 100
 int n;
 int arr[LIMIT][LIMIT];
 bool check[LIMIT][LIMIT];
 int dirx[] = {0,0,-1,1};
 int diry[] = {-1,1,0,0};
-
+using namespace std;
 void DFS(int x, int y)
 {
 	check[x][y] = true;
@@ -17,4 +25,9 @@ void DFS(int x, int y)
 			}
 		}
 	}
+}
+int main(){
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	return 0;
 }

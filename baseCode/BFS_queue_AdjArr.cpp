@@ -1,7 +1,15 @@
+#include <iostream>
+#include <cstdio>
+#include <vector>
+#include <queue>
+#include <deque>
+#include <cstring>
+#include <algorithm>
+#include <stack>
 #define LIMIT 100
 int check[LIMIT];
 int arr[LIMIT];
-
+using namespace std;
 void bfs(){
 	queue <int> q; 
 	check[1] = true;
@@ -16,4 +24,10 @@ void bfs(){
         	}
     	}
   	}
+}
+
+int main(){
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	return 0;
 }
