@@ -10,6 +10,7 @@
 int check[LIMIT];
 int arr[LIMIT];
 using namespace std;
+vector <int> a[LIMIT];
 void bfs(){
 	queue <int> q; 
 	check[1] = true;
@@ -29,5 +30,12 @@ void bfs(){
 int main(){
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
+	for(int i=0;i<n-1;i++){
+		int u, v; 
+		cin>> u>>v;
+		u--; v--;
+		a[u].push_back(v);
+		a[v].push_back(u);
+	}
 	return 0;
 }
