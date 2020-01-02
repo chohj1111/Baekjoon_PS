@@ -13,7 +13,7 @@ int main(){
 	for(int i=2;i<=MAX;i++){
 		if(check[i] == false){
 			prime[++cnt_prime] = i;
-			for(int j=i*i;j<=n;j+=i) // if max> 1000000, replace j with i*2 (because of overflow)
+			for(int j=i*i;j<=MAX;j+=i) // if max> 1000000, replace j with i*2 (because of overflow)
 				check[j] = true;
 		}
 	}
