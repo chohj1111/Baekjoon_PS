@@ -7,38 +7,55 @@
 #include <string>
 
 using namespace std;
-char arr[50][50];
-int num, ans = 0;
-
-bool isInside(int a, int b){
-	return(a>=0 %% b>=0 %% a<num %% b<num);	
-}
-void swap(char &a, char &b) {
-	char temp;
-	temp = a;
-	a= b;
-	b=temp;
-}
-void check(){
-	
+int check(const vector<string>& v){
+	int n= v.size();
+	int ans = 1;
+	for(int i=0;i<n;i++){
+		int cnt = 1;
+		for(int j=1;j<n;j++){
+			if(v[i][j]==v[i][j-1]) cnt++;
+			else {
+				cnt = 1;
+				ans = max(ans, cnt);
+			}
+			ans = max(ans, cnt);
+		}
+		cnt = 1;
+		for(int j=1;j<n;j++){
+			if(v[j][i] == v[j-1][i]) cnt++;
+			else {
+				cnt = 1;
+				ans = max(ans, cnt);
+			}
+			ans = max(ans,cnt);
+		}
+	}
+	return ans;
 }
 int main(){
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
+	int num;
 	cin>> num;
+	vector<string> arr(num);
+	for(int i=0;i<num;i++) cin>> arr[i];
+	int temp,ans =0;
 	for(int i=0;i<num;i++){
 		for(int j=0;j<num;j++){
-			cin>>arr[i][j];
-		}	
-	}
-	for(int i=0;i<num;i++){
-		for(int j=0;j<num;j++){
-			if(isInside(i,j+1)){
-				if(arr[i][j] != arr[i][j+1]){
-				 	swap(arr[i][j], arr[i][j+1]);
-				}
+			if(j+1<num) {
+				swap(arr[i][j], arr[i][j+1]);
+				temp = check(arr);
+				ans = max(temp,ans);
+				swap(arr[i][j], arr[i][j+1]);
+			}
+			if(i+1<num){
+				swap(arr[i][j], arr[i+1][j]);
+				temp = check(arr);
+				ans = max(temp,ans);
+				swap(arr[i][j], arr[i+1][j]);
 			}
 		}
 	}
+	cout<<ans<<'\n';
 	return 0;
 }	
