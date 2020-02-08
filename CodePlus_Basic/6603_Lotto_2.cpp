@@ -7,27 +7,28 @@
 #include <string>
 
 using namespace std;
-void solve(const vector<int>&arr, int index, int cnt){
-	int ret[6];
+int k;
+int arr[13];
+int ans[6];
+void solve(int index, int cnt){
 	if(cnt == 6){
-		for(int i=0;i<6;i++) cout<< ret[i]<<' ';
+		for(int i=0;i<6;i++) cout<< ans[i]<<' ';
 		cout<< '\n';
 		return;
 	}
-	ret[cnt] = arr[index];
-	solve(arr, index+1, cnt+1);
-	ret[cnt] = 0;
-	solve(arr, index+1, cnt);
+	for(int i=index;i<k;i++){
+		ans[cnt] = arr[i];
+		solve(i+1,cnt+1);
+	}
 }
 int main(){
 	ios_base::sync_with_stdio(false);	
 	cin.tie(NULL);
 	while(true){
-		int k;
 		cin>>k;
 		if(k==0) break;
-		vector<int> arr(k);
-		solve(arr, 0, 0);
+		for(int i=0;i<k;i++) cin>> arr[i];
+		solve(0, 0);
 		cout<<'\n';
 	}
 	return 0;
